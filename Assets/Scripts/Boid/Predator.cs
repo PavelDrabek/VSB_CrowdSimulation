@@ -8,7 +8,7 @@ public class Predator : Entity {
 		base.Init(boid, position);
 	}
 
-	override public Vector3 GetNextDirection() 
+	override public void CalculateMovement() 
 	{
 		Vector3 dirToCenterSum = Vector3.zero;
 		int count = 0;
@@ -29,6 +29,6 @@ public class Predator : Entity {
 		Vector3 cohesion = count > 0 ? dirToCenterSum /= count : Vector3.zero;
 
 //		return cohesion * Boid.CohesionCoef;
-		return cohesion.normalized;
+		nextDirection = cohesion.normalized;
 	}
 }

@@ -6,12 +6,13 @@ public class EntitySetterBehaviour : EntitySetter {
 	public float ViewRange;
 	public float ViewAngle;
 	public float CollisionRange;
-	public float Speed;
+	public float MaxSpeed;
 	public float Inertia;
 
 	public float CohesionCoef;
 	public float AlignCoef;
 	public float SeparationCoef;
+	public float TargetCoef;
 	public float PredatorSeparationCoef;
 
 
@@ -22,11 +23,12 @@ public class EntitySetterBehaviour : EntitySetter {
 		ec.entity.ViewRange = ViewRange;
 		ec.entity.ViewAngle = ViewAngle;
 		ec.entity.CollisionRange = CollisionRange;
-		ec.entity.Speed = Speed;
+		ec.entity.MaxSpeed = MaxSpeed;
 		ec.entity.Inertia = Inertia;
 		ec.entity.CohesionCoef = CohesionCoef;
 		ec.entity.AlignCoef = AlignCoef;
 		ec.entity.SeparationCoef = SeparationCoef;
+		ec.entity.TargetCoef = TargetCoef;
 		ec.entity.PredatorSeparationCoef = PredatorSeparationCoef;
 	}
 

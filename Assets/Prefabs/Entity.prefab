@@ -116,8 +116,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011063049486}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.31}
-  m_LocalScale: {x: 0.79093885, y: 0.79093885, z: 1.0183338}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.79093885, y: 0.79093885, z: 0.7817515}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000010820643262}
@@ -129,8 +129,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012245121866}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.02}
-  m_LocalScale: {x: 0.45960695, y: 0.45960695, z: 1.1328124}
+  m_LocalPosition: {x: 0, y: 0, z: 0.445}
+  m_LocalScale: {x: 0.45960695, y: 0.45960695, z: 0.35135865}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000010820643262}
@@ -148,7 +148,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2e6675486a5b8403aae573a1223854e0, type: 2}
+  - {fileID: 2100000, guid: b3a6319e68d59ff419dc7924930d104d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -270,13 +270,15 @@ MonoBehaviour:
   ViewRange: 15
   ViewAngle: 100
   CollisionRange: 3
-  Speed: 3
+  MaxSpeed: 0
   Inertia: 0.037
-  Target: {x: 0, y: 0, z: 26.6}
   CohesionCoef: 0.35
   AlignCoef: 0.36
   SeparationCoef: 10
+  TargetCoef: 0
   PredatorSeparationCoef: 30
+  Target: {x: 0, y: 0, z: 26.6}
   Position: {x: -0.015557289, y: 0, z: -11.305473}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 0}
+  isFinished: 0
