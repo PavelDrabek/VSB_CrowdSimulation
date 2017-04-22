@@ -21,8 +21,6 @@ public class Entity : MonoBehaviour {
 
 	public virtual void Init(Boid boid, Vector3 position) 
 	{
-		Debug.Log("Entity constructor");
-
 		Boid = boid;
 		Position = position;
 	}

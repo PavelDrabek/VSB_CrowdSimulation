@@ -15,7 +15,6 @@ public class EntitySetterCreator : EntitySetter {
 
 	public override void SetEntity(EntityController ec)
 	{
-		Debug.Log("Setting entity");
 		Boid b = GetBoidController().boid;
 		ec.entity.Init(b, Vector3.zero);
 		if(!b.Entities.Contains(ec.entity)) {
