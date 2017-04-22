@@ -11,7 +11,7 @@ public class EntityGizmo : MonoBehaviour {
 		return controller;
 	}
 
-	void OnDrawGizmos() {
+	void OnDrawGizmosSelected() {
 		Gizmos.color = Color.green;
 		Gizmos.DrawLine(GetController().entity.Position, GetController().entity.Target);
 	}
