@@ -1,27 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[System.Serializable]
-public class Entity {
+public class Entity : MonoBehaviour {
 
-	public float ViewRange { get; set; }
-	public float ViewAngle { get; set; }
-	public float CollisionRange { get; set; }
-	public float Speed { get; set; }
-	public float Inertia { get; set;}
-	public Vector3 Target { get; set; }
+	public float ViewRange;
+	public float ViewAngle;
+	public float CollisionRange;
+	public float Speed;
+	public float Inertia;
+	public Vector3 Target;
 
-	public float CohesionCoef { get; set; }
-	public float AlignCoef { get; set; }
-	public float SeparationCoef { get; set; }
-	public float PredatorSeparationCoef { get; set; }
+	public float CohesionCoef;
+	public float AlignCoef;
+	public float SeparationCoef;
+	public float PredatorSeparationCoef;
 
-	public Vector3 Position { get; set; }
-	public Vector3 Direction { get; set; }
-	public Boid Boid { get; private set; }
+	public Vector3 Position;
+	public Vector3 Direction;
+	public Boid Boid;
 
-	public Entity(Boid boid, Vector3 position) 
+	public virtual void Init(Boid boid, Vector3 position) 
 	{
+		Debug.Log("Entity constructor");
+
 		Boid = boid;
 		Position = position;
 	}

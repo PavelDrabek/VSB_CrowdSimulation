@@ -3,13 +3,16 @@ using System.Collections;
 
 public class EntityGizmo : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	private EntityController controller;
+	private EntityController GetController() {
+		if(controller == null) {
+			controller = GetComponent<EntityController>();
+		}
+		return controller;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void OnDrawGizmos() {
+		Gizmos.color = Color.green;
+		Gizmos.DrawLine(GetController().entity.Position, GetController().entity.Target);
 	}
 }

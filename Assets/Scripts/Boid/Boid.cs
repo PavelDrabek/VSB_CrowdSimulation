@@ -7,7 +7,7 @@ public class EntityEventArgs : EventArgs {
 	public Entity entity;
 }
 
-public class Boid {
+public class Boid : MonoBehaviour {
 
 //	public float CohesionCoef { get; set; }
 //	public float AlignCoef { get; set; }
@@ -22,16 +22,17 @@ public class Boid {
 	
 //	public Vector3 Target { get; set; }
 
-	public List<Entity> Entities { get; private set; }
+	public List<Entity> Entities = new List<Entity>();
 
 	public event EventHandler<EntityEventArgs> OnEntityAdd;
 	public event EventHandler<EntityEventArgs> OnEntityRemove;
 
-	public Boid() {
-		Entities = new List<Entity>();
-	}
+//	public Boid() {
+//		Debug.Log("Boid constructor");
+//		Entities = new List<Entity>();
+//	}
 
-	public void Update(float deltaTime) 
+	public void UpdateBoid(float deltaTime) 
 	{
 		Vector3[] nextDirections = new Vector3[Entities.Count];
 		for (int i = 0; i < Entities.Count; i++) {
@@ -46,6 +47,7 @@ public class Boid {
 	}
 
 	public void AddEntity(Entity entity) {
+		Debug.Log("Adding entity");
 		Entities.Add(entity);
 
 		if(OnEntityAdd != null) {

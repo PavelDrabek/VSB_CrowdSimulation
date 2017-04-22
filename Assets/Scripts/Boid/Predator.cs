@@ -4,8 +4,8 @@ using System.Collections;
 [System.Serializable]
 public class Predator : Entity {
 
-	public Predator(Boid boid, Vector3 position) : base(boid, position) {
-
+	public override void Init(Boid boid, Vector3 position) {
+		base.Init(boid, position);
 	}
 
 	override public Vector3 GetNextDirection() 

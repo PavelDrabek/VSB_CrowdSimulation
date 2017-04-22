@@ -3,17 +3,25 @@ using System.Collections;
 
 public class EntityGenerator : MonoBehaviour {
 
-	private Boid boid;
+	public EntityController prefabEntity;
+	private BoidController boidController;
 
-	public EntityType type;
-	public int count;
-	public float range;
+	public int count = 30;
+	public float range = 10;
+	public bool generate = false;
+	public bool clear = false;
 
 	void Start() {
-		boid = GameObject.FindObjectOfType<BoidController>().boid;
+		boidController = GameObject.FindObjectOfType<BoidController>();
 	}
 
 	void Update () {
+
+		if(generate) {
+			generate = false;
+			Generate(Vector3.zero);
+		}
+
 		if ( Input.GetMouseButtonDown (0)){ 
 			RaycastHit hit; 
 			int layer = 1 << 8;
@@ -30,14 +38,20 @@ public class EntityGenerator : MonoBehaviour {
 
 		for (int i = 0; i < count; i++) {
 			Vector3 randomPos = Vector3.Scale(Random.insideUnitSphere * range, new Vector3(1, 0, 1));
-			Entity e = null;
-			if(type == EntityType.Predator) {
-				e = new Predator(boid, randomPos);
-			} else {
-				e = new Entity(boid, randomPos);
-			}
-			boid.AddEntity(e);
+			GenerateEntity(randomPos);
 		}
 	}
 
+	public void GenerateEntity(Vector3 position) {
+//		Entity e = new Entity(boidController.Boid, position);
+//		if(type == EntityType.Predator) {
+//			e = new Predator(boidController.Boid, position);
+//		} else {
+//			e = new Entity(boidController.Boid, position);
+//		}
+		EntityController eController = Instantiate(prefabEntity, boidController.transform) as EntityController;
+		eController.entity.Init(boidController.boid, position);
+//		eController.SetEntity(e);
+		boidController.boid.AddEntity(eController.entity);
+	}
 }

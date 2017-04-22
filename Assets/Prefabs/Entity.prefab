@@ -55,7 +55,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012166578060}
+  - 114: {fileID: 114000013846597332}
   - 114: {fileID: 114000012683132862}
+  - 114: {fileID: 114000011440099538}
   m_Layer: 0
   m_Name: Entity
   m_TagString: Untagged
@@ -100,7 +102,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012469151812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.015557289, y: 0, z: -11.305473}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -229,6 +231,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114000011440099538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012469151812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0c80cda78327f49b712cc5be5be23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000012683132862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,5 +253,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2161546ad142446a9305dd4e4747a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entity: {fileID: 114000013846597332}
   myTransform: {fileID: 4000012166578060}
   meshRenderer: {fileID: 23000014063965040}
+--- !u!114 &114000013846597332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012469151812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614d0283ca3fb457ca9e54ad79119526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ViewRange: 15
+  ViewAngle: 100
+  CollisionRange: 3
+  Speed: 3
+  Inertia: 0.037
+  Target: {x: 0, y: 0, z: 26.6}
+  CohesionCoef: 0.35
+  AlignCoef: 0.36
+  SeparationCoef: 10
+  PredatorSeparationCoef: 30
+  Position: {x: -0.015557289, y: 0, z: -11.305473}
+  Direction: {x: 0, y: 0, z: 0}
+  Boid: {fileID: 0}
