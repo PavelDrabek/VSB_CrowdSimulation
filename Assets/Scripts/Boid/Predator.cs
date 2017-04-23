@@ -29,6 +29,6 @@ public class Predator : Entity {
 		Vector3 cohesion = count > 0 ? dirToCenterSum /= count : Vector3.zero;
 
 //		return cohesion * Boid.CohesionCoef;
-		nextDirection = cohesion.normalized;
+		nextVelocity = cohesion.normalized;
 	}
 }

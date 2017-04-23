@@ -7,13 +7,12 @@ public class Entity : MonoBehaviour {
 	public float ViewAngle;
 	public float CollisionRange;
 	public float MaxSpeed;
-	public float Inertia;
+	public float InertiaCoef;
 
-	public float CohesionCoef;
-	public float AlignCoef;
-	public float SeparationCoef;
-	public float TargetCoef;
-	public float PredatorSeparationCoef;
+	public float CohesionWeight;
+	public float AlignWeight;
+	public float SeparationWeight;
+	public float TargetWeight;
 
 	public Vector3 Target;
 
@@ -22,61 +21,64 @@ public class Entity : MonoBehaviour {
 	public Boid Boid;
 
 	public bool isFinished;
-	protected Vector3 nextDirection;
+	protected Vector3 nextVelocity;
+
+	public Vector3 cohesion { get; protected set; }
+	public Vector3 align{ get; protected set; }
+	public Vector3 separation { get; protected set; }
+	public Vector3 dirToTarget { get; protected set; }
 
 	public virtual void Init(Boid boid, Vector3 position) 
 	{
 		Boid = boid;
 		Position = position;
+		isFinished = false;
 	}
 
-	virtual public void CalculateMovement() 
+	virtual public void CalculateMovement()
 	{
-		if(isFinished) {
+		if (isFinished) {
 			isFinished = true;
 			return;
 		}
 
-		Vector3 dirToCenterSum = Vector3.zero;
-		Vector3 groupDirSum = Vector3.zero;
-		Vector3 separation = Vector3.zero;
-		Vector3 predatorDirSum = Vector3.zero;
+		cohesion = Vector3.zero;
+		align = Vector3.zero;
+		separation = Vector3.zero;
+		dirToTarget = (Target - Position).normalized;
+
 		int count = 0;
-		int predatorCount = 0;
 		for (int i = 0; i < Boid.Entities.Count; i++) {
-			if(Boid.Entities[i] == this) {
+			if (Boid.Entities[i] == this) {
 				continue;
 			}
 
-			Vector3 dirToEntity = Boid.Entities[i].Position - Position;
-			if(Mathf.Acos(Vector3.Dot(dirToEntity, Boid.Entities[i].Direction)) * Mathf.Rad2Deg > Mathf.Max(ViewAngle, 179)) {
+			Vector3 velToEntity = Boid.Entities[i].Position - Position;
+			if (Mathf.Acos(Vector3.Dot(velToEntity, Direction)) * Mathf.Rad2Deg > Mathf.Min(ViewAngle, 179)) {
 				continue;
 			}
 
-			float distance = dirToEntity.magnitude;
-			if(distance < ViewRange) {
+			float distance = velToEntity.magnitude;
+			if (distance < ViewRange && !Boid.Entities[i].isFinished) {
 				count++;
-				dirToCenterSum += dirToEntity;
-				groupDirSum += Boid.Entities[i].Direction;
+				cohesion += velToEntity;
+				align += Boid.Entities[i].Direction;
 			}
 
-			if(distance < CollisionRange) {
-				separation += dirToEntity * (distance - CollisionRange);
+			if (distance < CollisionRange) {
+				separation -= velToEntity.normalized * (CollisionRange / velToEntity.magnitude);
 			}
 		}
 
-		separation.Normalize();
-		Vector3 cohesion = Vector3.ClampMagnitude(count > 0 ? dirToCenterSum /= count : Vector3.zero, 1);
-		Vector3 align = Vector3.ClampMagnitude(count > 0 ? groupDirSum /= count : Vector3.zero, 1);
-		Vector3 predatorSeparation = Vector3.ClampMagnitude(predatorCount > 0 ? predatorDirSum / predatorCount : Vector3.zero, 1);
-		Vector3 dirToTarget = (Target - Position).normalized;
+		if (count > 0) {
+			cohesion /= count;
+			align /= count;
+		}
 
-
-		nextDirection = cohesion * CohesionCoef 
-			+ align * AlignCoef 
-			+ separation * SeparationCoef 
-			+ dirToTarget * TargetCoef
-			- predatorSeparation * PredatorSeparationCoef;
+		nextVelocity = cohesion * CohesionWeight
+			+ align * AlignWeight
+			+ separation * SeparationWeight
+			+ dirToTarget * TargetWeight;
 	}
 
 	virtual public void ApplyMovement(float deltaTime) {
@@ -84,7 +86,17 @@ public class Entity : MonoBehaviour {
 			return;
 		}
 
-		Direction = Vector3.Lerp(Direction, nextDirection, Inertia).normalized;
+		Quaternion rot = Quaternion.LookRotation(Direction, Vector3.up);
+		Quaternion rotNext = Quaternion.LookRotation(nextVelocity, Vector3.up);
+
+		if(rot != rotNext) {
+			float ip = Mathf.Exp(-InertiaCoef * Time.deltaTime);
+			Direction = Quaternion.Slerp(rot, rotNext, InertiaCoef * Time.deltaTime) * Vector3.forward;
+			//Direction = Vector3.Lerp(Direction, nextVelocity, Inertia);
+		} else {
+			Direction = nextVelocity;
+		}
+
 		Position += Vector3.ClampMagnitude(Direction, MaxSpeed * deltaTime);
 
 		if(Vector3.Distance(Position, Target) < 0.1f) {
