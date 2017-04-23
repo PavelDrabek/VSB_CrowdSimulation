@@ -13,6 +13,7 @@ public class Entity : MonoBehaviour {
 	public float AlignWeight;
 	public float SeparationWeight;
 	public float TargetWeight;
+	public bool CanFinish;
 
 	public Vector3 Target;
 
@@ -38,7 +39,6 @@ public class Entity : MonoBehaviour {
 	virtual public void CalculateMovement()
 	{
 		if (isFinished) {
-			isFinished = true;
 			return;
 		}
 
@@ -98,7 +98,7 @@ public class Entity : MonoBehaviour {
 
 		Position += Vector3.ClampMagnitude(Direction, MaxSpeed) * deltaTime;
 
-		if(Vector3.Distance(Position, Target) < 0.1f) {
+		if(CanFinish && Vector3.Distance(Position, Target) < 0.1f) {
 			isFinished = true;
 		}
 	}

@@ -19,6 +19,7 @@ public class EntitySetterBehaviour : EntitySetter {
 	[Range(0,3)]
 	public float TargetWeight;
 
+	public bool CanFinish;
 
 	#region implemented abstract members of EntitySetter
 
@@ -33,6 +34,7 @@ public class EntitySetterBehaviour : EntitySetter {
 		ec.entity.AlignWeight = AlignWeight;
 		ec.entity.SeparationWeight = SeparationWeight;
 		ec.entity.TargetWeight = TargetWeight;
+		ec.entity.CanFinish = CanFinish;
 	}
 
 	#endregion
