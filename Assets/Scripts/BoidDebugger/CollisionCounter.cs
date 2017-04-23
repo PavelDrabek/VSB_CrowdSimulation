@@ -14,7 +14,6 @@ public class CollisionCounter : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider c) {
 		collisions++;
-		Debug.Log("Collision");
 	}
 
 	void OnGUI() {
