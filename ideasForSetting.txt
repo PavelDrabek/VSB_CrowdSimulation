@@ -1,0 +1,11 @@
+## fish
+
+vieAngle = 100
+collisionRange = 3.5
+maxSpeed = 3
+InertiaCoef = 2.76
+CohesionWeight = 0.43
+AlignWeight = 0.56
+SeparationWeight = 1
+TargetWeight = 1
+

@@ -7,6 +7,7 @@ public class EntitySetterTarget : EntitySetter {
 	public Transform targetCenter;
 	public Vector3 size;
 	public float spacing;
+	public bool random;
 	public Color color;
 
 	#region implemented abstract members of EntitySetter
@@ -35,9 +36,12 @@ public class EntitySetterTarget : EntitySetter {
 	{
 //		Vector3 rnd = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
 //		rnd.Scale(size);
-		int rndIndex = Random.Range(0, positions.Count - 1);
-		ec.entity.Target = targetCenter.position - size * 0.5f + positions[rndIndex];
-		positions.RemoveAt(rndIndex);
+		int index = 0;
+		if (random) {
+			index = Random.Range(0, positions.Count - 1);
+		}
+		ec.entity.Target = targetCenter.position - size * 0.5f + positions[index];
+		positions.RemoveAt(index);
 	}
 
 	#endregion

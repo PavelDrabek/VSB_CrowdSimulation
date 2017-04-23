@@ -9,7 +9,7 @@ public class EntitySetterColor : EntitySetter {
 
 	public override void SetEntity (EntityController ec)
 	{
-		ec.meshRenderer.sharedMaterial.color = color;
+		ec.meshRenderer.material.color = color;
 	}
 
 	#endregion

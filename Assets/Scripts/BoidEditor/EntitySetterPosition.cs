@@ -7,6 +7,7 @@ public class EntitySetterPosition : EntitySetter {
 	public Transform center;
 	public Vector3 size;
 	public float spacing;
+	public bool random;
 	public Color color;
 
 	#region implemented abstract members of EntitySetter
@@ -33,10 +34,13 @@ public class EntitySetterPosition : EntitySetter {
 
 	public override void SetEntity(EntityController ec)
 	{
-		int rndIndex = Random.Range(0, positions.Count - 1);
-		ec.entity.Position = center.position - size * 0.5f + positions[rndIndex];
+		int index = 0;
+		if (random) {
+			index = Random.Range(0, positions.Count - 1);
+		}
+		ec.entity.Position = center.position - size * 0.5f + positions[index];
 		ec.myTransform.position = ec.entity.Position;
-		positions.RemoveAt(rndIndex);
+		positions.RemoveAt(index);
 	}
 
 	#endregion

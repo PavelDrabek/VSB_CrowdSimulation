@@ -13,7 +13,6 @@ public class EntitySetterBehaviour : EntitySetter {
 	public float AlignWeight;
 	public float SeparationWeight;
 	public float TargetWeight;
-	public float PredatorSeparationCoef;
 
 
 	#region implemented abstract members of EntitySetter
