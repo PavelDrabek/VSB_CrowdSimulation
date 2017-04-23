@@ -90,14 +90,13 @@ public class Entity : MonoBehaviour {
 		Quaternion rotNext = Quaternion.LookRotation(nextVelocity, Vector3.up);
 
 		if(rot != rotNext) {
-			float ip = Mathf.Exp(-InertiaCoef * Time.deltaTime);
-			Direction = Quaternion.Slerp(rot, rotNext, InertiaCoef * Time.deltaTime) * Vector3.forward;
+			Direction = Quaternion.Slerp(rot, rotNext, InertiaCoef * deltaTime) * Vector3.forward;
 			//Direction = Vector3.Lerp(Direction, nextVelocity, Inertia);
 		} else {
 			Direction = nextVelocity;
 		}
 
-		Position += Vector3.ClampMagnitude(Direction, MaxSpeed * deltaTime);
+		Position += Vector3.ClampMagnitude(Direction, MaxSpeed) * deltaTime;
 
 		if(Vector3.Distance(Position, Target) < 0.1f) {
 			isFinished = true;

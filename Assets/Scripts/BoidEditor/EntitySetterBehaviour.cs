@@ -3,15 +3,20 @@ using System.Collections;
 
 public class EntitySetterBehaviour : EntitySetter {
 
-	public float ViewRange;
+	[Range(1,179)]
 	public float ViewAngle;
+	public float ViewRange;
 	public float CollisionRange;
 	public float MaxSpeed;
 	public float InertiaCoef;
 
+	[Range(0,1)]
 	public float CohesionWeight;
+	[Range(0,1)]
 	public float AlignWeight;
+	[Range(0,3)]
 	public float SeparationWeight;
+	[Range(0,3)]
 	public float TargetWeight;
 
 
