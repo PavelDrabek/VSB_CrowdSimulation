@@ -3,11 +3,13 @@ using System.Collections;
 
 public class TimeController : MonoBehaviour {
 
+	public float startScale;
 	float time;
 	float scale = 0;
 
 	// Use this for initialization
 	void Start () {
+		Time.timeScale = startScale;
 		time = Time.time;
 	}
 
