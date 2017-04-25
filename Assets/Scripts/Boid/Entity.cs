@@ -47,22 +47,25 @@ public class Entity : MonoBehaviour {
 		separation = Vector3.zero;
 		dirToTarget = (Target - Position).normalized;
 
+//		Entity[] neighbors = Boid.Entities.ToArray();
+		Entity[] neighbors = Neighborhood.GetNeighbors(Position, ViewRange);
+
 		int count = 0;
-		for (int i = 0; i < Boid.Entities.Count; i++) {
-			if (Boid.Entities[i] == this) {
+		for (int i = 0; i < neighbors.Length; i++) {
+			if (neighbors[i] == this) {
 				continue;
 			}
 
-			Vector3 velToEntity = Boid.Entities[i].Position - Position;
+			Vector3 velToEntity = neighbors[i].Position - Position;
 			if (Mathf.Acos(Vector3.Dot(velToEntity, Direction)) * Mathf.Rad2Deg > Mathf.Min(ViewAngle, 179)) {
 				continue;
 			}
 
 			float distance = velToEntity.magnitude;
-			if (distance < ViewRange && !Boid.Entities[i].isFinished) {
+			if (distance < ViewRange && !neighbors[i].isFinished) {
 				count++;
 				cohesion += velToEntity;
-				align += Boid.Entities[i].Direction;
+				align += neighbors[i].Direction;
 			}
 
 			if (distance < CollisionRange) {

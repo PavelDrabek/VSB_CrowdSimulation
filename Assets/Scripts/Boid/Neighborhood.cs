@@ -7,7 +7,7 @@ public class Neighborhood : MonoBehaviour {
 		Collider[] colliders = Physics.OverlapSphere(position, radius);
 		Entity[] neighbors = new Entity[colliders.Length];
 		for (int i = 0; i < colliders.Length; i++) {
-			neighbors[i] = colliders[i].GetComponentInParent<Entity>();
+			neighbors[i] = colliders[i].GetComponent<EntityController>().entity;
 		}
 		return neighbors;
 	}
