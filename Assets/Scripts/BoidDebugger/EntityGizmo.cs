@@ -27,6 +27,6 @@ public class EntityGizmo : MonoBehaviour {
 		Gizmos.DrawLine(e.Position, e.Position + e.cohesion * e.CohesionWeight);
 		Gizmos.color = Color.magenta;
 		Gizmos.DrawLine(e.Position, e.Position + e.Direction);
-		Debug.Log("direction: " + e.Direction + " = " + e.Direction.magnitude);
+//		Debug.Log("direction: " + e.Direction + " = " + e.Direction.magnitude);
 	}
 }
