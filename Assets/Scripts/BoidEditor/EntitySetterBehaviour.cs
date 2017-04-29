@@ -10,6 +10,8 @@ public class EntitySetterBehaviour : EntitySetter {
 	public float SpeedCoef;
 	public float MaxSpeed;
 	public float InertiaCoef;
+	public float ObstacleLookahead;
+	public float LookaheadCoef;
 
 	[Range(0,1)]
 	public float CohesionWeight;
@@ -37,6 +39,8 @@ public class EntitySetterBehaviour : EntitySetter {
 		ec.entity.SeparationWeight = SeparationWeight;
 		ec.entity.TargetWeight = TargetWeight;
 		ec.entity.CanFinish = CanFinish;
+		ec.entity.ObstacleLookahead = ObstacleLookahead;
+		ec.entity.LookaheadCoef = LookaheadCoef;
 	}
 
 	#endregion

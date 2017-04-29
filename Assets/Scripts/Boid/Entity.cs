@@ -15,6 +15,8 @@ public class Entity : MonoBehaviour {
 	public float SeparationWeight;
 	public float TargetWeight;
 	public bool CanFinish;
+	public float ObstacleLookahead;
+	public float LookaheadCoef;
 
 	public Vector3 Target;
 
@@ -29,6 +31,7 @@ public class Entity : MonoBehaviour {
 	public Vector3 align{ get; protected set; }
 	public Vector3 separation { get; protected set; }
 	public Vector3 dirToTarget { get; protected set; }
+	public Vector3 obstacleAvoid { get; protected set; }
 
 	public virtual void Init(Boid boid, Vector3 position) 
 	{
@@ -79,10 +82,19 @@ public class Entity : MonoBehaviour {
 			align /= count;
 		}
 
+		obstacleAvoid = Vector3.zero;
+		if(ObstacleLookahead > 0) {
+			Hit hit;
+			if(Neighborhood.IsThereObstacle(Position, Direction * SpeedCoef * ObstacleLookahead, out hit)) {
+				obstacleAvoid = hit.normal;
+			}
+		}
+
 		nextVelocity = cohesion * CohesionWeight
 			+ align * AlignWeight
 			+ separation * SeparationWeight
-			+ dirToTarget * TargetWeight;
+			+ dirToTarget * TargetWeight
+			+ obstacleAvoid * LookaheadCoef;
 	}
 
 	virtual public void ApplyMovement(float deltaTime) {
