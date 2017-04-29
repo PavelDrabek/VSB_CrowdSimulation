@@ -6,6 +6,7 @@ public class Entity : MonoBehaviour {
 	public float ViewRange;
 	public float ViewAngle;
 	public float CollisionRange;
+	public float SpeedCoef;
 	public float MaxSpeed;
 	public float InertiaCoef;
 
@@ -99,7 +100,7 @@ public class Entity : MonoBehaviour {
 			Direction = nextVelocity;
 		}
 
-		Position += Vector3.ClampMagnitude(Direction, MaxSpeed) * deltaTime;
+		Position += Vector3.ClampMagnitude(Direction * SpeedCoef, MaxSpeed) * deltaTime;
 
 		if(CanFinish && Vector3.Distance(Position, Target) < 0.1f) {
 			isFinished = true;

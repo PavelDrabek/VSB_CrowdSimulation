@@ -7,6 +7,7 @@ public class EntitySetterBehaviour : EntitySetter {
 	public float ViewAngle;
 	public float ViewRange;
 	public float CollisionRange;
+	public float SpeedCoef;
 	public float MaxSpeed;
 	public float InertiaCoef;
 
@@ -29,6 +30,7 @@ public class EntitySetterBehaviour : EntitySetter {
 		ec.entity.ViewAngle = ViewAngle;
 		ec.entity.CollisionRange = CollisionRange;
 		ec.entity.MaxSpeed = MaxSpeed;
+		ec.entity.SpeedCoef = SpeedCoef;
 		ec.entity.InertiaCoef = InertiaCoef;
 		ec.entity.CohesionWeight = CohesionWeight;
 		ec.entity.AlignWeight = AlignWeight;
