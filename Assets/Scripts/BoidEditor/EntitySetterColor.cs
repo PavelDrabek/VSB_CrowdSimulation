@@ -9,7 +9,15 @@ public class EntitySetterColor : EntitySetter {
 
 	public override void SetEntity (EntityController ec)
 	{
-		ec.meshRenderer.material.color = color;
+		MeshRenderer mr = ec.GetComponentInChildren<MeshRenderer>();
+		if (mr != null) {
+			mr.material.color = color;
+		} else {
+			SkinnedMeshRenderer smr = ec.GetComponentInChildren<SkinnedMeshRenderer>();
+			if (smr != null) {
+				smr.material.color = color;
+			}
+		}
 	}
 
 	#endregion
