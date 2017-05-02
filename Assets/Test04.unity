@@ -1031,7 +1031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fc116b3c3482e469d0b561509ca8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewAngle: 100
+  ViewAngle: 150
   ViewRange: 7
   CollisionRange: 2
   SpeedCoef: 2
@@ -1107,7 +1107,7 @@ Transform:
   - {fileID: 923459918}
   - {fileID: 273690404}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!114 &19604161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1121,6 +1121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabModel: {fileID: 1000013507480990, guid: 4e1eed0259f6729428290bbf13fb0b0e,
     type: 2}
+  onlyDeleteModel: 0
 --- !u!1 &20370750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,7 +1342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -5984,7 +5985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -6487,8 +6488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -7178,6 +7179,7 @@ GameObject:
   - 92: {fileID: 125533452}
   - 124: {fileID: 125533451}
   - 81: {fileID: 125533450}
+  - 114: {fileID: 125533455}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7252,7 +7254,24 @@ Transform:
   m_LocalEulerAnglesHint: {x: 36.988003, y: -90, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
+--- !u!114 &125533455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 125533449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f90bc0f8d442dc45a24ec4ab5c59782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  rotationSpeed: 1
+  rotateAround: {fileID: 253287925}
+  distance: 40
+  x: 58.805176
+  y: -85.46253
 --- !u!1 &125533740
 GameObject:
   m_ObjectHideFlags: 0
@@ -7384,7 +7403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -11153,7 +11172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -15332,6 +15351,34 @@ Transform:
   - {fileID: 510785482}
   m_Father: {fileID: 1400915265}
   m_RootOrder: 0
+--- !u!1 &253287924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 253287925}
+  m_Layer: 0
+  m_Name: CameraCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &253287925
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 253287924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &254047628
 GameObject:
   m_ObjectHideFlags: 0
@@ -19408,8 +19455,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -20719,8 +20766,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -22197,7 +22244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -23145,7 +23192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -28570,7 +28617,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &469703298
 GameObject:
   m_ObjectHideFlags: 0
@@ -30532,7 +30579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -32903,7 +32950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -33995,7 +34042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -34967,7 +35014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -35704,8 +35751,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -37203,7 +37250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -38328,8 +38375,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -40403,8 +40450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -40921,7 +40968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -45063,8 +45110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -50017,7 +50064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -50257,7 +50304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -52010,7 +52057,7 @@ Transform:
   - {fileID: 1490924707}
   - {fileID: 1250488138}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &863339085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52057,9 +52104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fc116b3c3482e469d0b561509ca8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewAngle: 100
+  ViewAngle: 150
   ViewRange: 7
-  CollisionRange: 2
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -52096,6 +52143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabModel: {fileID: 1000013507480990, guid: 4e1eed0259f6729428290bbf13fb0b0e,
     type: 2}
+  onlyDeleteModel: 0
 --- !u!114 &864329918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52109,7 +52157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -52906,8 +52954,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -60131,7 +60179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -60451,8 +60499,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -64583,7 +64631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -64642,7 +64690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -68230,8 +68278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -69376,8 +69424,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -70017,8 +70065,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -72594,7 +72642,7 @@ Transform:
   - {fileID: 1678592743}
   - {fileID: 550031533}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &1182463592
 GameObject:
   m_ObjectHideFlags: 0
@@ -76687,7 +76735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -78105,7 +78153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -78817,7 +78865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -81483,8 +81531,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -87652,8 +87700,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -90759,7 +90807,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1490676037
 GameObject:
   m_ObjectHideFlags: 0
@@ -97698,7 +97746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -98633,8 +98681,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -99708,8 +99756,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -103288,8 +103336,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -105483,7 +105531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
+  ViewAngle: 150
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
@@ -114181,8 +114229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -117429,8 +117477,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -118161,8 +118209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -118252,7 +118300,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1923420388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120954,8 +121002,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -127559,8 +127607,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3
@@ -127736,8 +127784,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 7
-  ViewAngle: 100
-  CollisionRange: 2
+  ViewAngle: 150
+  CollisionRange: 2.5
   SpeedCoef: 2
   MaxSpeed: 6
   InertiaCoef: 3

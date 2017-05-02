@@ -9,11 +9,11 @@ public class CameraController : MonoBehaviour {
 	public Transform rotateAround;
 	public float distance;
 
-	float x, y;
+	public float x, y;
 
 	// Use this for initialization
 	void Start () {
-		x = y = 0;
+		//x = y = 0;
 	}
 	
 	// Update is called once per frame
