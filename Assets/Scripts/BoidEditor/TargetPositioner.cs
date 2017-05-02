@@ -27,6 +27,6 @@ public class TargetPositioner : MonoBehaviour {
 	}
 
 	void OnDrawGizmosSelected() {
-		Gizmos.DrawCube(target.position, area);
+		Gizmos.DrawWireCube(target.position, area);
 	}
 }

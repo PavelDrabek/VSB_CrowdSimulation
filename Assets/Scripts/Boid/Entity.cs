@@ -24,6 +24,7 @@ public class Entity : MonoBehaviour {
 	public Vector3 Direction;
 	public Boid Boid;
 
+	public bool fixed2D;
 	public bool isFinished;
 	protected Vector3 nextVelocity;
 
@@ -49,7 +50,7 @@ public class Entity : MonoBehaviour {
 		cohesion = Vector3.zero;
 		align = Vector3.zero;
 		separation = Vector3.zero;
-		dirToTarget = (Target - Position).normalized;
+		dirToTarget = Vector3.ClampMagnitude(Target - Position, 1);
 
 //		Entity[] neighbors = Boid.Entities.ToArray();
 		Entity[] neighbors = Neighborhood.GetNeighbors(Position, ViewRange);
@@ -78,15 +79,17 @@ public class Entity : MonoBehaviour {
 		}
 
 		if (count > 0) {
-			cohesion /= count;
-			align /= count;
+			cohesion = (cohesion / count) * dirToTarget.magnitude;
+			align = (align / count) * dirToTarget.magnitude;
 		}
 
 		obstacleAvoid = Vector3.zero;
 		if(ObstacleLookahead > 0) {
 			Hit hit;
-			if(Neighborhood.IsThereObstacle(Position, Direction * SpeedCoef * ObstacleLookahead, out hit)) {
-				obstacleAvoid = hit.normal;
+			Vector3 lookahead = Direction * SpeedCoef * ObstacleLookahead;
+			if(Neighborhood.IsThereObstacle(Position, lookahead, out hit)) {
+//				obstacleAvoid = hit.normal; 
+				obstacleAvoid = hit.normal.normalized * (lookahead.magnitude / hit.velocity.magnitude);
 			}
 		}
 
@@ -95,6 +98,10 @@ public class Entity : MonoBehaviour {
 			+ separation * SeparationWeight
 			+ dirToTarget * TargetWeight
 			+ obstacleAvoid * LookaheadCoef;
+
+		if(fixed2D) {
+			nextVelocity.y = 0;
+		}
 	}
 
 	virtual public void ApplyMovement(float deltaTime) {

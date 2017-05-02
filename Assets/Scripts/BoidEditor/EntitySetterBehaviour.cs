@@ -22,6 +22,7 @@ public class EntitySetterBehaviour : EntitySetter {
 	[Range(0,3)]
 	public float TargetWeight;
 
+	public bool Fixed2D;
 	public bool CanFinish;
 
 	#region implemented abstract members of EntitySetter
@@ -41,6 +42,7 @@ public class EntitySetterBehaviour : EntitySetter {
 		ec.entity.CanFinish = CanFinish;
 		ec.entity.ObstacleLookahead = ObstacleLookahead;
 		ec.entity.LookaheadCoef = LookaheadCoef;
+		ec.entity.fixed2D = Fixed2D;
 	}
 
 	#endregion
