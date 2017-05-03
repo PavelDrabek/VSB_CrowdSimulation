@@ -434,13 +434,14 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
+  InertiaCoef: 5
   ObstacleLookahead: 0
   LookaheadCoef: 0
-  CohesionWeight: 0
-  AlignWeight: 0
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
+  Fixed2D: 0
   CanFinish: 0
 --- !u!114 &19604158
 MonoBehaviour:
@@ -504,7 +505,7 @@ Transform:
   - {fileID: 923459918}
   - {fileID: 273690404}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!114 &19604161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,6 +519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabModel: {fileID: 1000014232887178, guid: eb467b84ab37958459d7f1ba0a32484d,
     type: 2}
+  onlyDeleteModel: 0
 --- !u!114 &23560953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,9 +537,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -547,6 +549,7 @@ MonoBehaviour:
   Position: {x: -4.6, y: 0, z: 31.699999}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &24619801
 GameObject:
@@ -1372,9 +1375,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -1384,6 +1387,7 @@ MonoBehaviour:
   Position: {x: -4.6, y: 0, z: 37.699997}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!114 &113101838
 MonoBehaviour:
@@ -1402,7 +1406,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -1414,6 +1418,7 @@ MonoBehaviour:
   Position: {x: -1.4449997, y: 0, z: -33.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &113101840
 Transform:
@@ -1619,6 +1624,7 @@ GameObject:
   - 92: {fileID: 125533452}
   - 124: {fileID: 125533451}
   - 81: {fileID: 125533450}
+  - 114: {fileID: 125533455}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1693,7 +1699,24 @@ Transform:
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
+--- !u!114 &125533455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 125533449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f90bc0f8d442dc45a24ec4ab5c59782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  rotationSpeed: 1
+  rotateAround: {fileID: 2095534756}
+  distance: 60
+  x: 36.83021
+  y: -87.65197
 --- !u!114 &127151436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1711,9 +1734,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -1723,6 +1746,7 @@ MonoBehaviour:
   Position: {x: -1.5999999, y: 0, z: 28.699999}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &142492438
 GameObject:
@@ -2305,9 +2329,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -2317,6 +2341,7 @@ MonoBehaviour:
   Position: {x: -1.5999999, y: 0, z: 31.699999}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &202147599
 Transform:
@@ -3741,7 +3766,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -3753,6 +3778,7 @@ MonoBehaviour:
   Position: {x: 1.5550003, y: 0, z: -33.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &319421073
 Transform:
@@ -4039,7 +4065,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -4051,6 +4077,7 @@ MonoBehaviour:
   Position: {x: -1.4449997, y: 0, z: -30.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &341163941
 Transform:
@@ -4297,9 +4324,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -4309,6 +4336,7 @@ MonoBehaviour:
   Position: {x: -1.5999999, y: 0, z: 25.699999}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &378748709
 GameObject:
@@ -4468,9 +4496,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -4480,6 +4508,7 @@ MonoBehaviour:
   Position: {x: 4.4, y: 0, z: 25.699999}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &390641763
 GameObject:
@@ -5158,7 +5187,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &471591317
 GameObject:
   m_ObjectHideFlags: 0
@@ -5302,9 +5331,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -5314,6 +5343,7 @@ MonoBehaviour:
   Position: {x: 4.4, y: 0, z: 37.699997}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &504778060
 GameObject:
@@ -5464,9 +5494,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -5476,6 +5506,7 @@ MonoBehaviour:
   Position: {x: -4.6, y: 0, z: 34.699997}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &534697478
 Transform:
@@ -5666,9 +5697,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -5678,6 +5709,7 @@ MonoBehaviour:
   Position: {x: -1.5999999, y: 0, z: 34.699997}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &548853604
 GameObject:
@@ -5726,9 +5758,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -5738,6 +5770,7 @@ MonoBehaviour:
   Position: {x: 1.4000001, y: 0, z: 28.699999}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!114 &584318733
 MonoBehaviour:
@@ -5756,7 +5789,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -5768,6 +5801,7 @@ MonoBehaviour:
   Position: {x: 7.5550003, y: 0, z: -33.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &584318735
 Transform:
@@ -5882,9 +5916,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -5894,6 +5928,7 @@ MonoBehaviour:
   Position: {x: 4.4, y: 0, z: 31.699999}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &614619293
 GameObject:
@@ -5972,7 +6007,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -5984,6 +6019,7 @@ MonoBehaviour:
   Position: {x: -1.4449997, y: 0, z: -27.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &629396194
 GameObject:
@@ -6437,7 +6473,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -6449,6 +6485,7 @@ MonoBehaviour:
   Position: {x: -10.445, y: 0, z: -33.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &662115193
 Transform:
@@ -6629,9 +6666,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -6641,6 +6678,7 @@ MonoBehaviour:
   Position: {x: 1.4000001, y: 0, z: 37.699997}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &678890071
 GameObject:
@@ -7305,7 +7343,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -7317,6 +7355,7 @@ MonoBehaviour:
   Position: {x: 1.5550003, y: 0, z: -30.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &743816366
 Transform:
@@ -7704,9 +7743,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -7716,6 +7755,7 @@ MonoBehaviour:
   Position: {x: 1.4000001, y: 0, z: 40.699997}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!114 &835805045
 MonoBehaviour:
@@ -7734,9 +7774,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -7746,6 +7786,7 @@ MonoBehaviour:
   Position: {x: 4.4, y: 0, z: 34.699997}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &835967666
 GameObject:
@@ -8061,7 +8102,7 @@ Transform:
   - {fileID: 1490924707}
   - {fileID: 1250488138}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &863339085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8113,13 +8154,14 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   ObstacleLookahead: 0
   LookaheadCoef: 0
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
   TargetWeight: 0.6
+  Fixed2D: 0
   CanFinish: 0
 --- !u!114 &863339088
 MonoBehaviour:
@@ -8146,6 +8188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabModel: {fileID: 1000014232887178, guid: eb467b84ab37958459d7f1ba0a32484d,
     type: 2}
+  onlyDeleteModel: 0
 --- !u!114 &864329918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8163,9 +8206,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -8175,6 +8218,7 @@ MonoBehaviour:
   Position: {x: 1.4000001, y: 0, z: 25.699999}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &874542085
 GameObject:
@@ -8290,7 +8334,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -8302,6 +8346,7 @@ MonoBehaviour:
   Position: {x: 4.5550003, y: 0, z: -30.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &883187071
 Transform:
@@ -9398,9 +9443,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -9410,6 +9455,7 @@ MonoBehaviour:
   Position: {x: -4.6, y: 0, z: 28.699999}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &991038577
 GameObject:
@@ -9494,7 +9540,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -9506,6 +9552,7 @@ MonoBehaviour:
   Position: {x: -4.4449997, y: 0, z: -33.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &992704588
 Transform:
@@ -10427,9 +10474,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -10439,6 +10486,7 @@ MonoBehaviour:
   Position: {x: 1.4000001, y: 0, z: 34.699997}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!114 &1056066963
 MonoBehaviour:
@@ -10457,9 +10505,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -10469,6 +10517,7 @@ MonoBehaviour:
   Position: {x: 4.4, y: 0, z: 28.699999}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!21 &1065133900
 Material:
@@ -10732,7 +10781,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -10744,6 +10793,7 @@ MonoBehaviour:
   Position: {x: -10.445, y: 0, z: -30.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &1107419489
 Transform:
@@ -10822,7 +10872,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -10834,6 +10884,7 @@ MonoBehaviour:
   Position: {x: -7.4449997, y: 0, z: -30.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &1127267706
 Transform:
@@ -11017,7 +11068,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -11029,6 +11080,7 @@ MonoBehaviour:
   Position: {x: -13.445, y: 0, z: -27.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &1138452048
 Transform:
@@ -11956,9 +12008,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -11968,6 +12020,7 @@ MonoBehaviour:
   Position: {x: -4.6, y: 0, z: 40.699997}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &1250488137
 GameObject:
@@ -12202,9 +12255,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -12214,6 +12267,7 @@ MonoBehaviour:
   Position: {x: 1.4000001, y: 0, z: 31.699999}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &1275523148
 GameObject:
@@ -12298,9 +12352,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -12310,6 +12364,7 @@ MonoBehaviour:
   Position: {x: -1.5999999, y: 0, z: 37.699997}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &1294743632
 GameObject:
@@ -12908,7 +12963,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -12920,6 +12975,7 @@ MonoBehaviour:
   Position: {x: -13.445, y: 0, z: -33.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &1329753652
 Transform:
@@ -13637,7 +13693,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -13649,6 +13705,7 @@ MonoBehaviour:
   Position: {x: -4.4449997, y: 0, z: -30.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &1432962334
 Transform:
@@ -14039,7 +14096,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1490924706
 GameObject:
   m_ObjectHideFlags: 0
@@ -14431,9 +14488,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -14443,6 +14500,7 @@ MonoBehaviour:
   Position: {x: -1.5999999, y: 0, z: 40.699997}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &1601409596
 GameObject:
@@ -14733,7 +14791,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -14745,6 +14803,7 @@ MonoBehaviour:
   Position: {x: -4.4449997, y: 0, z: -27.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!114 &1606273988
 MonoBehaviour:
@@ -14958,7 +15017,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -14970,6 +15029,7 @@ MonoBehaviour:
   Position: {x: 7.5550003, y: 0, z: -30.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &1624515881
 Transform:
@@ -15919,7 +15979,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -15931,6 +15991,7 @@ MonoBehaviour:
   Position: {x: 10.555, y: 0, z: -33.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &1691237866
 Transform:
@@ -16297,9 +16358,9 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 5
-  InertiaCoef: 20
-  CohesionWeight: 0
-  AlignWeight: 0
+  InertiaCoef: 5
+  CohesionWeight: 0.48
+  AlignWeight: 0.494
   SeparationWeight: 1
   TargetWeight: 0.6
   CanFinish: 0
@@ -16309,6 +16370,7 @@ MonoBehaviour:
   Position: {x: -4.6, y: 0, z: 25.699999}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!1 &1729220684
 GameObject:
@@ -17692,7 +17754,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -17704,6 +17766,7 @@ MonoBehaviour:
   Position: {x: 4.5550003, y: 0, z: -33.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &1863704860
 Transform:
@@ -18162,7 +18225,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -18174,6 +18237,7 @@ MonoBehaviour:
   Position: {x: 10.555, y: 0, z: -30.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &1913214528
 Transform:
@@ -18438,7 +18502,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -18450,6 +18514,7 @@ MonoBehaviour:
   Position: {x: -10.445, y: 0, z: -27.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &1923403795
 Transform:
@@ -18524,7 +18589,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1923420388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18611,7 +18676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 466eb64b5b3007f4db5733675a973898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScale: 1
+  startScale: 0
 --- !u!1 &1931607608
 GameObject:
   m_ObjectHideFlags: 0
@@ -19114,7 +19179,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -19126,6 +19191,7 @@ MonoBehaviour:
   Position: {x: -7.4449997, y: 0, z: -27.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &1969021563
 Transform:
@@ -20391,7 +20457,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -20403,6 +20469,7 @@ MonoBehaviour:
   Position: {x: -7.4449997, y: 0, z: -33.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &2071354143
 Transform:
@@ -20451,7 +20518,7 @@ MonoBehaviour:
   CollisionRange: 2
   SpeedCoef: 2
   MaxSpeed: 6
-  InertiaCoef: 20
+  InertiaCoef: 8
   CohesionWeight: 0
   AlignWeight: 0
   SeparationWeight: 1
@@ -20463,6 +20530,7 @@ MonoBehaviour:
   Position: {x: -13.445, y: 0, z: -30.614998}
   Direction: {x: 0, y: 0, z: 0}
   Boid: {fileID: 1923420389}
+  fixed2D: 0
   isFinished: 0
 --- !u!4 &2073099798
 Transform:
@@ -20751,6 +20819,34 @@ Transform:
   - {fileID: 1661490871}
   - {fileID: 1814530709}
   m_Father: {fileID: 1913214528}
+  m_RootOrder: 0
+--- !u!1 &2095534755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2095534756}
+  m_Layer: 0
+  m_Name: cameraCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2095534756
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2095534755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!1 &2096846280
 GameObject:

@@ -1,7 +1,10 @@
 \select@language {czech}
-\contentsline {section}{\numberline {1}\IeC {\'U}vod}{2}
-\contentsline {subsection}{\numberline {1.1}C\IeC {\'\i }l projektu}{2}
-\contentsline {section}{\numberline {2}Mraven\IeC {\v c}\IeC {\'\i } kolonie}{3}
-\contentsline {subsection}{\numberline {2.1}Popis metody}{3}
-\contentsline {section}{\numberline {3}Boid}{4}
-\contentsline {subsection}{\numberline {3.1}Popis metody}{4}
+\contentsline {section}{\numberline {1}\IeC {\'U}vod}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}C\IeC {\'\i }l projektu}{2}{subsection.1.1}
+\contentsline {section}{\numberline {2}Mraven\IeC {\v c}\IeC {\'\i } kolonie}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Popis metody}{3}{subsection.2.1}
+\contentsline {section}{\numberline {3}Model Boid}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Popis modelu}{4}{subsection.3.1}
+\contentsline {section}{\numberline {4}Implementace}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Z\IeC {\'a}kladn\IeC {\'\i } model Boid}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'\i } o c\IeC {\'\i }l}{7}{subsection.4.2}
