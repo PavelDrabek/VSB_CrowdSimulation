@@ -1,6 +1,12 @@
 \section{Implementace}
 Implementace probíhala v jazyce $C\#$ a vývojovém prostředí Unity3D \cite{Unity}, ve kterém mám dlouholetou zkušenost. 
 \subsection{Základní model Boid}
+Jednotlivé pravidla Koheze $v_c$, Vyrovnání $v_a$, Separace $v_s$ byly realizovány níže těmito vzorci: 
+\begin{equation}
+v_c = \frac{ \sum\limits_{i=1}^n{p_{Bi} } }{ n } - p, \qquad
+v_a = \frac{ \sum\limits_{i=1}^n{v_{Bi} } }{ n } - v, \qquad
+v_s = \frac{ \sum\limits_{i=1}^n{ \frac{p_{Bi}}{\mid v \mid}  } }{ n } - v.
+\end{equation}
 Reynolds ve svém článku neuvádí jakým stylem jednotlivé pravidla řídit ani jaké váhy použít. Byla tedy vytvořena váha pro každé pravidlo, díky kterému můžeme řídit prioritu těchto pravidel. 
 \par
 Pro lepší vizuální představu jak model Boid funguje byl vytvořen jednoduchý editor, ve kterém je možné v reálném čase nastavit upravit váhy jednotlivým pravidlům a vidět změnu v chování hejna, aniž by bylo potřeba pouštět celou simulaci znovu. To umožnilo rychleji dosáhnout požadovaného chování hejna. Pro správné nastavení vah by teoreticky šel použít i evoluční algoritmus, avšak na tak jednoduchém příkladě není jasné jakým způsobem určovat fitness. 
