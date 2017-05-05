@@ -1,13 +1,18 @@
 \section{Implementace}
-Implementace probíhala v jazyce $C\#$ a vývojovém prostředí Unity3D \cite{Unity}, ve kterém mám dlouholetou zkušenost. 
+Implementace probíhala v jazyce $C\#$ a vývojovém prostředí Unity3D \cite{Unity}. 
 \subsection{Základní model Boid}
-Jednotlivé pravidla Koheze $v_c$, Vyrovnání $v_a$, Separace $v_s$ byly realizovány níže těmito vzorci: 
-\begin{equation}
-v_c = \frac{ \sum\limits_{i=1}^n{p_{Bi} } }{ n } - p, \qquad
-v_a = \frac{ \sum\limits_{i=1}^n{v_{Bi} } }{ n } - v, \qquad
-v_s = \frac{ \sum\limits_{i=1}^n{ \frac{p_{Bi}}{\mid v \mid}  } }{ n } - v.
-\end{equation}
-Reynolds ve svém článku neuvádí jakým stylem jednotlivé pravidla řídit ani jaké váhy použít. Byla tedy vytvořena váha pro každé pravidlo, díky kterému můžeme řídit prioritu těchto pravidel. 
+Jednotlivé vektory, které budou upravovat aktuální vektor rychlosti podle pravidel Koheze $\vv{v}_c$, Vyrovnání $\vv{v}_a$, Separace $\vv{v}_s$ byly realizovány těmito vzorci, kde $n$ je počet agentů v okolí, $\vv{v}$ rychlost a $P$ pozice aktuálního agenta, $\vv{v}_{Bi}$ rychlostní vektor a $P_Bi$ pozice agenta v okolí, $R_c$ určuje radius, od kterého se agent snaží vyhýbat kolizím: 
+\begin{equation*}
+\vv{v}_c = \frac{ \sum\limits_{i=1}^n{P_{Bi} } }{ n } - P, \qquad
+\vv{v}_a = \frac{ \sum\limits_{i=1}^n{\vv{v}_{Bi} } }{ n } - \vv{v}, \qquad
+\vv{v}_s = -\sum\limits_{i=1}^n{ \frac{(\vv{PP}_{Bi}) * R_c}{\mid \vv{PP}_{Bi}\mid}}.
+\end{equation*}
+Vektory pro kohezi a vyrovnání počítáme pouze pro agenty v okolí. Agent se nachází v okolí jiného agenta pokud $\mid\vv{PP}_{Bi}\mid \ \leq R_v \land acos(\vv{PP}_{Bi} \boldsymbol{\cdot} \vv{v}) \leq \alpha $, kde $R_v$ je radius dohledu a $\alpha$ zorný úhel agenta. 
+\par
+Reynolds ve svém článku neuvádí jakým stylem jednotlivé pravidla řídit ani jaké váhy použít. Byla tedy vytvořena váha pro každé pravidlo, díky kterému můžeme řídit prioritu těchto pravidel. Nový rychlostní vektor $\vv{v}_{t+1}$ získáme přičtením všech pravidel k aktuálnímu rychlostnímu vektoru $\vv{v_t}$: 
+\begin{equation*}
+\vv{v}_{t+1} = \vv{v}_t + \vv{v}_c + \vv{v}_a + \vv{v}_s. 
+\end{equation*}
 \par
 Pro lepší vizuální představu jak model Boid funguje byl vytvořen jednoduchý editor, ve kterém je možné v reálném čase nastavit upravit váhy jednotlivým pravidlům a vidět změnu v chování hejna, aniž by bylo potřeba pouštět celou simulaci znovu. To umožnilo rychleji dosáhnout požadovaného chování hejna. Pro správné nastavení vah by teoreticky šel použít i evoluční algoritmus, avšak na tak jednoduchém příkladě není jasné jakým způsobem určovat fitness. 
 \par
@@ -20,16 +25,16 @@ Od toho pravidla vyžadujeme, ať přitahuje agenta k cíli, ale neznehodnotí z
 \par
 Pomocí nového pravidla je možné kontrolovat pozici hejna a pozicovat ho dle svých potřeb. Pro názornou ukázku vznikla scéna s akváriem a rybičkami. V určitém časovém intervalu nastavuji všem agentům (rybám) náhodně vygenerovaný cíl uvnitř akvária.  
 \begin{figure}[H]
-	\label{fig:ryby_20_50}
 	\includegraphics[width=10cm]{fish_20_50.png}
 	\centering
 	\caption{Hejno 20 modrých a 50 červených ryb}
+	\label{fig:ryby2050}
 \end{figure}
-Na obrázku \ref{fig:ryby_20_50} můžeme vidět 2 různě početné a nastavené skupiny agentů. První je skupina 20 velkých modrých ryb, které jsou pomalé, drží se dál od sebe (velká váha u separace) a pomalu mění svůj směr. Druhá skupina obsahuje 50 malých červených ryb, které jsou rychlejší, agilnější, ale více se drží pohromadě (velká váha u koheze a vyrovnání). 
+Na obrázku \ref{fig:ryby2050} můžeme vidět 2 různě početné a nastavené skupiny agentů. První je skupina 20 velkých modrých ryb, které jsou pomalé, drží se dál od sebe (velká váha u separace) a pomalu mění svůj směr. Druhá skupina obsahuje 50 malých červených ryb, které jsou rychlejší, agilnější, ale více se drží pohromadě (velká váha u koheze a vyrovnání). 
 \par
 Stejnými pravidly se dá simulovat i dav lidí, kteří se potřebují dostat z jednoho místa na druhé. Pro tyto účely byl každému jedinci nastaven odlišný cíl. Obrázek \ref{fig:srovnaniVahy} znázorňuje srovnání chování 2 skupin poslaných proti sobě. Červená skupina na levém obrázku má nastavené váhy pro Kohezi a Vyrovnání převyšující váhu pravidla pro Cíl. Na pravém obrázku mají nastaveny váhy pro Kohezi a Vyrovnání tak, aby součet těchto vah nepřekročil váhu pro Cíl. Modrá skupina má nastavené pouze pravidlo Separace a Cíl. Pravidla pro Kohezi a Vyrovnání mají nulovou váhu. Každý agent má za úkol dostat se na druhou stranu a zaujmout pozici v pomyslné mřížce. Obrázky ve směru dolů jsou stavem s narůstajícím časem simulace. 
 \begin{figure}[H]
-	\includegraphics[width=10cm]{entities_weights.png}
+	\includegraphics[width=15cm]{entities_weights.png}
 	\centering
 	\caption{Srovnání vah v časech $t\in\{ 0,20,30,70\} $}
 	\label{fig:srovnaniVahy}
