@@ -52106,14 +52106,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ViewAngle: 150
   ViewRange: 7
-  CollisionRange: 2.5
+  CollisionRange: 2
   SpeedCoef: 2
-  MaxSpeed: 6
-  InertiaCoef: 3
-  ObstacleLookahead: 5
-  LookaheadCoef: 5
-  CohesionWeight: 0
-  AlignWeight: 0
+  MaxSpeed: 5
+  InertiaCoef: 5
+  ObstacleLookahead: 2.2
+  LookaheadCoef: 3.47
+  CohesionWeight: 0.215
+  AlignWeight: 0.22
   SeparationWeight: 1
   TargetWeight: 0.6
   Fixed2D: 1

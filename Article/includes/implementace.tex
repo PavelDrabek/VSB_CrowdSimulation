@@ -1,4 +1,4 @@
-\section{Implementace}
+\section{Implementace modelu Boid}
 Implementace probíhala v jazyce $C\#$ a vývojovém prostředí Unity3D \cite{Unity}. 
 \subsection{Základní model Boid}
 Jednotlivé vektory, které budou upravovat aktuální vektor rychlosti podle pravidel Koheze $\vv{v}_c$, Vyrovnání $\vv{v}_a$, Separace $\vv{v}_s$ byly realizovány těmito vzorci, kde $n$ je počet agentů v okolí, $\vv{v}$ rychlost a $P$ pozice aktuálního agenta, $\vv{v}_{Bi}$ rychlostní vektor a $P_Bi$ pozice agenta v okolí, $R_c$ určuje radius, od kterého se agent snaží vyhýbat kolizím: 
@@ -11,7 +11,7 @@ Vektory pro kohezi a vyrovnání počítáme pouze pro agenty v okolí. Agent se
 \par
 Reynolds ve svém článku neuvádí jakým stylem jednotlivé pravidla řídit ani jaké váhy použít. Byla tedy vytvořena váha pro každé pravidlo, díky kterému můžeme řídit prioritu těchto pravidel. Nový rychlostní vektor $\vv{v}_{t+1}$ získáme přičtením všech pravidel k aktuálnímu rychlostnímu vektoru $\vv{v_t}$: 
 \begin{equation*}
-\vv{v}_{t+1} = \vv{v}_t + \vv{v}_c + \vv{v}_a + \vv{v}_s. 
+\vv{v}_{t+1} = \sum{v_i \cdot w_i} \qquad v = \{\vv{v}_c, \vv{v}_a, \vv{v}_s\}, \qquad w = \{\vv{w}_c, \vv{w}_a, \vv{w}_s\}. 
 \end{equation*}
 \par
 Pro lepší vizuální představu jak model Boid funguje byl vytvořen jednoduchý editor, ve kterém je možné v reálném čase nastavit upravit váhy jednotlivým pravidlům a vidět změnu v chování hejna, aniž by bylo potřeba pouštět celou simulaci znovu. To umožnilo rychleji dosáhnout požadovaného chování hejna. Pro správné nastavení vah by teoreticky šel použít i evoluční algoritmus, avšak na tak jednoduchém příkladě není jasné jakým způsobem určovat fitness. 
@@ -32,7 +32,19 @@ Pomocí nového pravidla je možné kontrolovat pozici hejna a pozicovat ho dle 
 \end{figure}
 Na obrázku \ref{fig:ryby2050} můžeme vidět 2 různě početné a nastavené skupiny agentů. První je skupina 20 velkých modrých ryb, které jsou pomalé, drží se dál od sebe (velká váha u separace) a pomalu mění svůj směr. Druhá skupina obsahuje 50 malých červených ryb, které jsou rychlejší, agilnější, ale více se drží pohromadě (velká váha u koheze a vyrovnání). 
 \par
-Stejnými pravidly se dá simulovat i dav lidí, kteří se potřebují dostat z jednoho místa na druhé. Pro tyto účely byl každému jedinci nastaven odlišný cíl. Obrázek \ref{fig:srovnaniVahy} znázorňuje srovnání chování 2 skupin poslaných proti sobě. Červená skupina na levém obrázku má nastavené váhy pro Kohezi a Vyrovnání převyšující váhu pravidla pro Cíl. Na pravém obrázku mají nastaveny váhy pro Kohezi a Vyrovnání tak, aby součet těchto vah nepřekročil váhu pro Cíl. Modrá skupina má nastavené pouze pravidlo Separace a Cíl. Pravidla pro Kohezi a Vyrovnání mají nulovou váhu. Každý agent má za úkol dostat se na druhou stranu a zaujmout pozici v pomyslné mřížce. Obrázky ve směru dolů jsou stavem s narůstajícím časem simulace. 
+Stejnými pravidly se dá simulovat i dav lidí, kteří se potřebují dostat z jednoho místa na druhé. Pro tyto účely byl každému jedinci nastaven odlišný cíl. Obrázek \ref{fig:srovnaniVahy} znázorňuje srovnání chování 2 skupin poslaných proti sobě. Červená skupina na levém obrázku má nastavené váhy pro Kohezi a Vyrovnání převyšující váhu pravidla pro Cíl, červená skupina napravo ne. Přesné nastavení váhy lze vidět v tabulce: 
+\begin{table}[H]
+\centering
+\label{tableSrovnani}
+\caption{Nastavení vah pro srovnání skupin}
+\begin{tabular}{lllll}
+skupina         & $w_c$  & $w_a$  & $w_s$  & $w_t$ \\
+modrá           & 0.2  & 0.2  & 1.0  & 0.6 \\
+červená vlevo   & 0.0  & 0.0  & 1.0  & 0.6 \\
+červená vpravo  & 0.5  & 0.5  & 1.0  & 0.6  
+\end{tabular}
+\end{table}
+Každý agent má za úkol dostat se na druhou stranu a zaujmout pozici v pomyslné mřížce. Obrázky ve směru dolů jsou stavem s narůstajícím časem simulace. 
 \begin{figure}[H]
 	\includegraphics[width=15cm]{entities_weights.png}
 	\centering
@@ -48,10 +60,21 @@ Dalším přidaným pravidlem, díky kterému bude chování hejna více připom
 	\centering
 	\caption{Vychýlení vektoru rychlosti při detekci překážky \cite{ReynoldsBoidNoBump} }
 \end{figure}
-Pro test byly do scény přidány 2 překážky a puštěna obvyklá simulace dvou skupin, která si mají vyměnit místa. Na obrázku \ref{fig:agents_anim} můžeme pozorovat, že hejno překážku obteče a má tendenci se zase spojit do jednoho shluku. 
+Pro test byly do scény přidány 2 překážky a puštěna obvyklá simulace dvou skupin, která si mají vyměnit místa.  
 \begin{figure}[H]
-	\includegraphics[width=10cm]{peopleAgents_anim.png}
+	\includegraphics[width=8cm]{peopleAgents_anim.png}
 	\centering
 	\caption{2 skupiny agentů s detekcí překážek v časech $t\in\{ 0,10,20,30\} $}
 	\label{fig:agents_anim}
 \end{figure}
+Přidání tohoto pravidla se dav před překážkou rozdělí a v závislosti na dalších parametrech se může za překážkou zase spojit. Správným nastavením vzdálenosti, ve které agent hledá překážku můžeme docílit věrohodného chování celého davu. 
+\subsection{Omezení modelu}
+Přestože jednotliví agenti vykazují známky složitého chování, stále se řídí vesměs triviálními pravidly, které mohou zapříčinit nechtěné odchylky. Jednou z nich je tzv. semknutí dvou agentů, kteří se navzájem přetlačují a jeden druhému nedokáží ustoupit. To má za následek nechtěnné chování, kdy tito agenti většinou opustí hejno a může zapříčinit, že začnou procházet překážkami. 
+\begin{figure}[H]
+	\includegraphics[width=10cm]{people_problem_anim.png}
+	\centering
+	\caption{Srážka a semknutí dvou agentů v časech $t\in\{ 100, 115\} $}
+\end{figure}
+Jednotlivá pravidla modelu jsou nastavena tak, aby se model pokusil vyhýbat kolizím, ale nedokážou zajistit 100\% úspěšnost. Do jisté míry se tento problém dá oddálit správným nastavením vah. První testy chování Boid modelu dosahovaly přibližně 200 kolizí/s. Postupně se podařilo chování vyladit až na verzi bez žádné kolize. 
+\par
+Rozšíření o pravidlo vyhýbaní se překážkám, které Reynolds popsal ve své práci \cite{ReynoldsBoidNoBump} pracuje pouze se statickými objekty. Abhinav Golas, Rahul Narain a Ming Lin publikovali v roce 2014 článek Hybrid Long-Range Collision Avoidance for Crowd Simulation \cite{Golas2013}. Ve své práci popisují agenta, který umí predikovat pohyb jiných agentů a vyhnout se tak kolizi daleko dříve. 
