@@ -24,9 +24,13 @@ public class EntitySetterPosition : EntitySetter {
 			p.x += spacing;
 			if(p.x > size.x) {
 				p.x = 0;
-				p.z += spacing;
-				if(p.z > size.z) {
-					Debug.LogWarning("Not enought space");
+				p.y += spacing;
+				if(p.y > size.y) {
+					p.y = 0;
+					p.z += spacing;
+					if (p.z > size.z) {
+
+					}
 				}
 			}
 		}
