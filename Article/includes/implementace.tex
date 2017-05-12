@@ -1,5 +1,5 @@
 \section{Implementace modelu Boid}
-Implementace probíhala v jazyce $C\#$ a vývojovém prostředí Unity3D \cite{Unity}. 
+Implementace probíhala v jazyce $C\#$ a vývojovém prostředí Unity3D \cite{Unity}. Bylo využito komponentního systému \cite{Components}, které vývojové prostředí nabízí. 
 \subsection{Základní model Boid}
 Jednotlivé vektory, které budou upravovat aktuální vektor rychlosti podle pravidel Koheze $\vv{v}_c$, Vyrovnání $\vv{v}_a$, Separace $\vv{v}_s$ byly realizovány těmito vzorci, kde $n$ je počet agentů v okolí, $\vv{v}$ rychlost a $P$ pozice aktuálního agenta, $\vv{v}_{Bi}$ rychlostní vektor a $P_Bi$ pozice agenta v okolí, $R_c$ určuje radius, od kterého se agent snaží vyhýbat kolizím: 
 \begin{equation*}
@@ -11,7 +11,7 @@ Vektory pro kohezi a vyrovnání počítáme pouze pro agenty v okolí. Agent se
 \par
 Reynolds ve svém článku neuvádí jakým stylem jednotlivé pravidla řídit ani jaké váhy použít. Byla tedy vytvořena váha pro každé pravidlo, díky kterému můžeme řídit prioritu těchto pravidel. Nový rychlostní vektor $\vv{v}_{t+1}$ získáme přičtením všech pravidel k aktuálnímu rychlostnímu vektoru $\vv{v_t}$: 
 \begin{equation*}
-\vv{v}_{t+1} = \sum{v_i \cdot w_i} \qquad v = \{\vv{v}_c, \vv{v}_a, \vv{v}_s\}, \qquad w = \{\vv{w}_c, \vv{w}_a, \vv{w}_s\}. 
+\vv{v}_{t+1} = \vv{v}_t + \sum{v_i \cdot w_i} \qquad v = \{\vv{v}_c, \vv{v}_a, \vv{v}_s\}, \qquad w = \{\vv{w}_c, \vv{w}_a, \vv{w}_s\}. 
 \end{equation*}
 \par
 Pro lepší vizuální představu jak model Boid funguje byl vytvořen jednoduchý editor, ve kterém je možné v reálném čase nastavit upravit váhy jednotlivým pravidlům a vidět změnu v chování hejna, aniž by bylo potřeba pouštět celou simulaci znovu. To umožnilo rychleji dosáhnout požadovaného chování hejna. Pro správné nastavení vah by teoreticky šel použít i evoluční algoritmus, avšak na tak jednoduchém příkladě není jasné jakým způsobem určovat fitness. 
