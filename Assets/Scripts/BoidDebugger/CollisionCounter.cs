@@ -17,7 +17,7 @@ public class CollisionCounter : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		GUI.color = Color.black;
-		GUI.Label(new Rect(20, 20, 200, 20), "collisions/s: " + (int)(collisions / (Time.realtimeSinceStartup - timeSinceStart)) + ", count: " + collisions);
+		//GUI.color = Color.black;
+		//GUI.Label(new Rect(20, 20, 200, 20), "collisions/s: " + (int)(collisions / (Time.realtimeSinceStartup - timeSinceStart)) + ", count: " + collisions);
 	}
 }

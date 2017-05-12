@@ -24,6 +24,11 @@ public class EntitySetterEditor : Editor {
 			EntitySetter setter = (EntitySetter)target;
 			GroupSetter groupSetter = setter.GetComponent<GroupSetter>();
 			groupSetter.CallSetter(setter);
+
+			Debug.Log("Setting dirty");
+			for (int e = 0; e < groupSetter.entities.Length; e++) {
+				EditorUtility.SetDirty(groupSetter.entities[e].entity);
+			}
 		}
 	}
 }

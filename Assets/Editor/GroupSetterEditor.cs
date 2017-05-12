@@ -17,6 +17,11 @@ public class GroupSetterEditor : Editor {
 		if(GUILayout.Button("Set entities"))
 		{
 			setter.CallSelectors();
+
+			Debug.Log("Setting dirty");
+			for (int e = 0; e < setter.entities.Length; e++) {
+				EditorUtility.SetDirty(setter.entities[e].entity);
+			}
 		}
 	}
 }
